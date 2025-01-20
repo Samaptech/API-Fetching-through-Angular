@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService implements OnInit {
+export class UsersService{
 
   constructor(private http:HttpClient ) { }
 
-  ngOnInit() {
+  getUsers() {
     const apiUrl = "https://dummyjson.com/users";
-    return this.http.get(apiUrl)
+    return this.http.get<any>(apiUrl)
   }
 }

@@ -12,14 +12,14 @@ export class UsersComponent implements OnInit {
   constructor(private userService:UsersService){
 
   }
-  ngOnInit(){
-    this.userService.ngOnInit().subscribe(
-      (response)=>{
+  ngOnInit(): void{
+    this.userService.getUsers().subscribe(
+      {next:(response)=>{
         this.user = response.users;
       },
-      (error)=>{
+      error:(error)=>{
         console.log("error fetching data")
-      }
+      }}
 
     );
 
